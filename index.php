@@ -1,50 +1,3 @@
-<?php
-$frase = !empty($_GET["frase"]) ? $_GET["frase"] : "";
-$resultado = "";
-
-if (!empty($frase)) {
-    $fraseAdaptada = "";
-    for ($i = 0; $i < strLen($frase); $i++) {
-        if (!preg_match('/[^\p{L}\p{N}]/u', $frase[$i]) || $frase[$i] == " " || $frase[$i] == "-" || $frase[$i] == "_") {
-            #VERIFICAR SI SON ESPECIALES
-            $fraseAdaptada .= $frase[$i];
-
-        }
-    }
-    $fraseAdaptada = quitarDuplicados($fraseAdaptada, " ");
-    $fraseAdaptada = quitarDuplicados($fraseAdaptada, "_");
-    for ($i = 0; $i < strLen($fraseAdaptada); $i++) {
-        if ($i == 0 || $fraseAdaptada[$i - 1] == " " || $fraseAdaptada[$i - 1] == "-" || $fraseAdaptada[$i - 1] == "_") {
-            $resultado .= strtoupper($fraseAdaptada[$i]);
-        }
-    }
-
-    $resultado = "Resultado: $resultado";
-} else {
-    echo "Ingrese una frase para continuar";
-}
-
-function quitarDuplicados($texto, $caracter)
-{
-    $resultado = "";
-
-    for ($i = 0; $i < strLen($texto); $i++) {
-        $letraActual = $texto[$i];
-
-        if ($letraActual !== $caracter) {
-            $resultado .= $letraActual;
-        } else {
-            if ($i === 0 || $texto[$i - 1] !== $caracter) {
-                $resultado .= $letraActual;
-            }
-        }
-    }
-
-    return $resultado;
-}
-
-?>
-
 <!DOCTYPE html>
 <html lang="es">
 
@@ -55,12 +8,13 @@ function quitarDuplicados($texto, $caracter)
 </head>
 
 <body>
-    <h1>Generador de acrónimos</h1>
-    <form action="" method="get">
-        <h2>Ingrese la frase</h2>
-        <input type="text" name="frase" id="">
-        <button type="submit">Enviar</button>
-    </form>
+    <h1>Menú</h1>
+    <li->
+        <ul><a href="acronimos.php">Punto 1</a></ul>
+        <ul><a href="sucesiones.php">Punto 2</a></ul>
+        <ul><a href="promedio.php">Punto 3</a></ul>
+        <ul><a href="conjuntos.php">Punto 4</a></ul>
+    </li->
     <div>
         <h2> <?php echo $resultado ?> </h2>
     </div>
