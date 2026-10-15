@@ -5,23 +5,22 @@ $resultado = "";
 if (!empty($frase)) {
     $fraseAdaptada = "";
     for ($i = 0; $i < strLen($frase); $i++) {
-        if (!preg_match('/[^\p{L}\p{N}]/u', $frase[$i]) || $frase[$i] == " " || $frase[$i] == "-" || $frase[$i] == "_") {
+        if (!preg_match('/[^\p{L}\p{N}]/u', $frase[$i])) {
             #VERIFICAR SI SON ESPECIALES
             $fraseAdaptada .= $frase[$i];
-
+        }
+        if ($frase[$i] == " " || $frase[$i] == "-" || $frase[$i] == "_") {
+            $fraseAdaptada .= "_";
         }
     }
-    $fraseAdaptada = quitarDuplicados($fraseAdaptada, " ");
     $fraseAdaptada = quitarDuplicados($fraseAdaptada, "_");
     for ($i = 0; $i < strLen($fraseAdaptada); $i++) {
-        if ($i == 0 || $fraseAdaptada[$i - 1] == " " || $fraseAdaptada[$i - 1] == "-" || $fraseAdaptada[$i - 1] == "_") {
+        if ($i == 0 || $fraseAdaptada[$i - 1] == "_") {
             $resultado .= strtoupper($fraseAdaptada[$i]);
         }
     }
 
     $resultado = "Frase: $frase <br> Resultado: $resultado";
-} else {
-    echo "Ingrese una frase para continuar";
 }
 
 function quitarDuplicados($texto, $caracter)
@@ -51,18 +50,27 @@ function quitarDuplicados($texto, $caracter)
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/styles.css">
     <title>Acrónimo</title>
 </head>
 
 <body>
     <h1>Generador de acrónimos</h1>
     <form action="#" method="post">
-        <label>Ingrese la frase</label>
-        <input type="text" name="frase" id="" required>
+        <div>
+
+            <label class="subtitulo">Ingrese la frase</label>
+            <input type="text" name="frase" id="" required>
+        </div>
         <button type="submit">Enviar</button>
+        <label class="subtitulo">
+            <?php if (empty($frase)) {
+                echo "Ingrese una frase para continuar";
+            } ?>
+        </label>
     </form>
-    <div>
-        <h2> <?php echo $resultado ?> </h2>
+    <div class="resultado">
+        <h2 class="subtitulo"> <?php echo $resultado ?> </h2>
     </div>
 </body>
 

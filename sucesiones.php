@@ -1,6 +1,6 @@
 <?php
-$valor = !empty($_GET["valor"]) ? $_GET["valor"] : "";
-$operacion = !empty($_GET["operacion"]) ? $_GET["operacion"] : "";
+$valor = !empty($_POST["valor"]) ? $_POST["valor"] : "";
+$operacion = !empty($_POST["operacion"]) ? $_POST["operacion"] : "";
 $resultado = "";
 
 if (!empty($valor) && !empty($operacion)) {
@@ -38,18 +38,19 @@ if (!empty($valor) && !empty($operacion)) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/styles.css">
     <title>Document</title>
 </head>
 
 <body>
     <h1>Generador de secuencias</h1>
-    <form action="#" method="get">
+    <form action="#" method="post">
         <div>
-            <label>Ingrese el valor</label>
-            <input type="number" name="valor" id="" value=<?php echo $valor;?> required>
+            <label class="subtitulo">Ingrese el valor</label>
+            <input type="number" name="valor" id="" value=<?php echo $valor;?> required min="0">
         </div>
         <div>
-            <label>Seleccione la operación</label>
+            <label class="subtitulo">Seleccione la operación</label>
             <select id="" name="operacion">
                 <option value="fibo">Fibonacci</option>
                 <option value="fact">Factorial</option>
@@ -58,8 +59,8 @@ if (!empty($valor) && !empty($operacion)) {
 
         <button type="submit">Enviar</button>
     </form>
-    <div>
-        <h2> <?php echo $resultado ?> </h2>
+    <div class="resultado">
+        <h2 class=subtitulo><?php echo "$resultado"; ?></h2>
     </div>
 </body>
 

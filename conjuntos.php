@@ -1,6 +1,6 @@
 <?php
-$conjuntoAText = empty($_GET["numerosA"]) ? null : $_GET["numerosA"];
-$conjuntoBText = empty($_GET["numerosB"]) ? null : $_GET["numerosB"];
+$conjuntoAText = empty($_POST["numerosA"]) ? null : $_POST["numerosA"];
+$conjuntoBText = empty($_POST["numerosB"]) ? null : $_POST["numerosB"];
 
 if (!empty($conjuntoAText) && !empty($conjuntoBText)) {
 
@@ -34,7 +34,7 @@ function normalizarConjunto(string $conjuntoText)
 
 function imprimirConjunto(array $conjunto, string $nomConjunto)
 {
-    echo "<h2>Conjunto $nomConjunto: {";
+    echo "<h2 class="."subtitulo".">Conjunto $nomConjunto: {";
     if (count($conjunto) > 0) {
         echo $conjunto[0];
     }
@@ -88,20 +88,20 @@ function diferencia(array $conjA, array $conjB)
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/styles.css">
     <title>Calculadora de Promedio</title>
 </head>
 
 <body>
-
-    <div class="container">
-        <h2>Calculadora de Conjuntos</h2>
-        <form method="get" action="">
-            <label>Cuántos números contiene el conjunto A:</label>
+        <h1>Calculadora de Conjuntos</h1>
+        <form method="post" action="">
+            <label class="subtitulo">Elementos del conjunto A:</label>
             <input type="text" name="numerosA" min="0" required>
-            <label>Cuántos números contiene el conjunto B:</label>
-            <input type="text" name="numerosB" min="0">
+            <label class="subtitulo">Elementos del conjunto B:</label>
+            <input type="text" name="numerosB" min="0" required>
             <button type="submit">Calcular</button>
         </form>
+    <div class="resultado">
         <?php
         if (!empty($numerosA) && !empty($numerosB)) {
             imprimirConjunto($numerosA, "A");
