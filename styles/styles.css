@@ -130,7 +130,6 @@ h2 {
   width: 100%;
 }
 
-
 button {
   color: #fff;
   font-size: 30px;
@@ -143,17 +142,18 @@ button {
   border-width: 2px;
   border-style: solid;
   border-radius: 15px;
-  transition-property: border, padding;
-  transition-duration: 200ms;
+  transition-property: border, padding, border-radius;
+  transition-duration: 500ms;
   transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 button:hover {
   background-image: linear-gradient(144deg, #5b42f3, #00ddeb 50%, #af40ff);
-  border-color: #fafafa;
+  border-color: #08ceff;
   color: #fcfcfc;
   cursor: pointer;
-  padding-right: 25px;
-  padding-left: 25px;
+}
+button:active{
+  border-radius: 5px;
 }
 body {
   display: flex;
@@ -162,6 +162,77 @@ body {
   height: 100vh;
 }
 
-.formatoArbol{
+.formatoArbol {
   color: #fff;
+}
+
+/*calculadora*/
+.tablero-botones {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5px;
+  grid-template-areas:
+    "div  mult rest sum"
+    "n7   n8   n9   igual"
+    "n4   n5   n6   igual"
+    "n1   n2   n3   igual"
+    "n0   n0   pnt  igual";
+}
+.numeros {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
+}
+.btn-div {
+  grid-area: div;
+}
+.btn-multi {
+  grid-area: mult;
+}
+.btn-menos {
+  grid-area: rest;
+}
+.btn-suma {
+  grid-area: sum;
+}
+
+.btn-7 {
+  grid-area: n7;
+}
+.btn-8 {
+  grid-area: n8;
+}
+.btn-9 {
+  grid-area: n9;
+}
+
+.btn-4 {
+  grid-area: n4;
+}
+.btn-5 {
+  grid-area: n5;
+}
+.btn-6 {
+  grid-area: n6;
+}
+
+.btn-1 {
+  grid-area: n1;
+}
+.btn-2 {
+  grid-area: n2;
+}
+.btn-3 {
+  grid-area: n3;
+}
+
+.btn-0 {
+  grid-area: n0;
+}
+.btn-punto {
+  grid-area: pnt;
+}
+
+.btn-igual {
+  grid-area: igual;
 }

@@ -17,6 +17,7 @@
         <a href="conjuntos.php"><li>Conjunto</li></a>
         <a href="binario.php"><li>Binario</li></a>
         <a href="arbol.php"><li>Árbol binario</li></a>
+        <a href="calculadora.php"><li>Calculadora</li></a>
     </ol>
 </body>
 

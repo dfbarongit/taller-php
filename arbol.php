@@ -65,27 +65,19 @@ function preIn(array $preorden, array $inorden): ?Nodo
         return null;
     }
 
-    // 1. El primer elemento de Preorden siempre es la raíz actual
     $valorRaiz = $preorden[0];
     $raiz = new Nodo($valorRaiz);
 
-    // 2. Buscar la posición de la raíz en el recorrido Inorden
     $indiceRaizInorden = array_search($valorRaiz, $inorden);
 
-    // 3. Dividir el array Inorden en subárbol izquierdo y derecho
-    //Tomar desde 0 hasta el anterior donde está la raiz
     $inordenIzq = array_slice($inorden, 0, $indiceRaizInorden);
-    //Tomar desde el siguiente donde está la raiz hasta el final
     $inordenDer = array_slice($inorden, $indiceRaizInorden + 1);
 
-    // 4. Determinar cuántos elementos hay en la izquierda para cortar el Preorden
     $tamanoIzquierda = count($inordenIzq);
 
-    // 5. Dividir el array Preorden (saltando la raíz que está en el índice 0)
     $preordenIzq = array_slice($preorden, 1, $tamanoIzquierda);
     $preordenDer = array_slice($preorden, 1 + $tamanoIzquierda);
 
-    // 6. Construir recursivamente los hijos utilizando las funciones Setter/Constructor
     $raiz->setIzquierda(preIn($preordenIzq, $inordenIzq));
     $raiz->setDerecha(preIn($preordenDer, $inordenDer));
     return $raiz;
@@ -96,61 +88,45 @@ function postIn(array $inorden, array $postorden): ?Nodo
         return null;
     }
 
-    // 1. El ÚLTIMO elemento de Postorden siempre es la raíz actual
-    // Usamos array_pop para extraerlo y reducir el array simultáneamente
     $valorRaiz = array_pop($postorden);
     $raiz = new Nodo($valorRaiz);
 
-    // 2. Buscar la posición de la raíz en el recorrido Inorden
     $indiceRaizInorden = array_search($valorRaiz, $inorden);
 
-    // 3. Dividir el array Inorden en subárbol izquierdo y derecho
     $inordenIzq = array_slice($inorden, 0, $indiceRaizInorden);
     $inordenDer = array_slice($inorden, $indiceRaizInorden + 1);
 
-    // 4. Determinar cuántos elementos pertenecen a cada lado
     $tamanoIzquierda = count($inordenIzq);
 
-    // 5. Dividir el array Postorden remanente usando los tamaños calculados
     $postordenIzq = array_slice($postorden, 0, $tamanoIzquierda);
     $postordenDer = array_slice($postorden, $tamanoIzquierda);
 
-    // 6. Construir recursivamente los subárboles e instanciar el Nodo
     $raiz->setIzquierda(postIn($inordenIzq, $postordenIzq));
     $raiz->setDerecha(postIn($inordenDer, $postordenDer));
     return $raiz;
 }
 function prePost(array $preorden, array $postorden): ?Nodo
 {
-    // Caso base: si no hay elementos, el subárbol está vacío
     if (empty($preorden) || empty($postorden)) {
         return null;
     }
 
-    // 1. El primer elemento de Preorden siempre es la raíz actual
     $valorRaiz = $preorden[0];
     $raiz = new Nodo($valorRaiz);
 
-    // Si solo hay un elemento, significa que es un nodo hoja. Lo retornamos de inmediato.
     if (count($preorden) === 1) {
         return $raiz;
     }
 
-    // 2. En un árbol estricto, el SEGUNDO elemento de Preorden es la raíz del subárbol izquierdo
     $raizIzquierda = $preorden[1];
 
-    // 3. Buscamos esa raíz izquierda en el Postorden para saber dónde termina ese bloque
     $indiceRaizIzqPost = array_search($raizIzquierda, $postorden);
 
-    // 4. Calculamos cuántos elementos tiene el subárbol izquierdo en total
-    // Sumamos 1 porque los índices en PHP comienzan en 0
     $tamanoIzquierda = $indiceRaizIzqPost + 1;
 
-    // 5. Dividimos el array Preorden (saltando el índice 0 que es la raíz actual)
     $preordenIzq = array_slice($preorden, 1, $tamanoIzquierda);
     $preordenDer = array_slice($preorden, 1 + $tamanoIzquierda);
 
-    // 6. Dividimos el array Postorden
     $postordenIzq = array_slice($postorden, 0, $tamanoIzquierda);
     $postordenDer = array_slice($postorden, $tamanoIzquierda, -1); // El -1 quita la raíz actual del final
 
