@@ -6,6 +6,9 @@ html {
   background-color: #17002b;
   font-family: "Poppins", sans-serif;
 }
+header{
+  background-color: #00f2fe;
+}
 h1 {
   font-family: "Orbitron", sans-serif;
   letter-spacing: 5%;
@@ -118,6 +121,11 @@ form div,
   width: 100%;
   display: flex;
   justify-content: space-between;
+  border-color: #9e00b7;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 25px;
+  margin: 25px;
 }
 .subtitulo,
 h2 {
@@ -130,7 +138,13 @@ h2 {
   width: 100%;
 }
 
-button {
+button, .a-calc{
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+
   color: #fff;
   font-size: 30px;
   padding-bottom: 10px;
@@ -141,19 +155,22 @@ button {
   border-color: #fff;
   border-width: 2px;
   border-style: solid;
-  border-radius: 15px;
+  border-radius: 25px;
   transition-property: border, padding, border-radius;
   transition-duration: 500ms;
   transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
 }
-button:hover {
+button:hover, .a-calc:hover {
   background-image: linear-gradient(144deg, #5b42f3, #00ddeb 50%, #af40ff);
-  border-color: #08ceff;
+  
   color: #fcfcfc;
   cursor: pointer;
+  border-radius: 15px;
+  
 }
-button:active{
+button:active, .a-calc:active{
   border-radius: 5px;
+  border-color: #08ceff;
 }
 body {
   display: flex;
@@ -167,13 +184,28 @@ body {
 }
 
 /*calculadora*/
+.pantalla{
+  background-color: #2a003c;
+  width: 100%;
+  border-radius: 10px;
+  border-style: solid;
+  border-color: #00f2fe;
+  margin: 20px;
+  padding: 10px;
+}
+.digito-pantalla{
+  font-family: monospace;
+  color: #00d0ff;
+  text-align: right;
+}
+
 .tablero-botones {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 5px;
   grid-template-areas:
     "div  mult rest sum"
-    "n7   n8   n9   igual"
+    "n7   n8   n9   res"
     "n4   n5   n6   igual"
     "n1   n2   n3   igual"
     "n0   n0   pnt  igual";
@@ -183,56 +215,64 @@ body {
   grid-template-columns: repeat(3, 1fr);
   gap: 5px;
 }
-.btn-div {
+
+
+
+.a-calc div {
+  background-color: #00f2fe;
   grid-area: div;
+
 }
-.btn-multi {
+.a-calc-multi {
   grid-area: mult;
 }
-.btn-menos {
+.a-calc-menos {
   grid-area: rest;
 }
-.btn-suma {
+.a-calc-suma {
   grid-area: sum;
 }
+.a-calc-resid {
+  grid-area: res;
+}
 
-.btn-7 {
+.a-calc-7 {
   grid-area: n7;
 }
-.btn-8 {
+.a-calc-8 {
   grid-area: n8;
 }
-.btn-9 {
+.a-calc-9 {
   grid-area: n9;
 }
 
-.btn-4 {
+.a-calc-4 {
   grid-area: n4;
 }
-.btn-5 {
+.a-calc-5 {
   grid-area: n5;
 }
-.btn-6 {
+.a-calc-6 {
   grid-area: n6;
 }
 
-.btn-1 {
+.a-calc-1 {
   grid-area: n1;
 }
-.btn-2 {
+.a-calc-2 {
   grid-area: n2;
 }
-.btn-3 {
+.a-calc-3 {
   grid-area: n3;
 }
 
-.btn-0 {
+.a-calc-0 {
   grid-area: n0;
 }
-.btn-punto {
+.a-calc-punto {
   grid-area: pnt;
 }
 
-.btn-igual {
+.a-calc-igual {
   grid-area: igual;
 }

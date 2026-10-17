@@ -55,6 +55,7 @@ function quitarDuplicados($texto, $caracter)
 </head>
 
 <body>
+    <header></header>
     <h1>Generador de acrónimos</h1>
     <form action="#" method="post">
         <div>
