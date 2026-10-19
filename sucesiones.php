@@ -20,16 +20,16 @@ if (!empty($valor) && !empty($operacion)) {
         }
     } elseif ($operacion == "fact") {
         $resultado = $valor;
+        $resTotal = $valor;
         for ($i = $valor - 1; $i > 0; $i--) { 
-            $resultado .= "*".$i;
+            $resTotal *= $i;
+            $resultado .= " * ".$i;
         }
+        $resultado .= " = ".$resTotal;
     }
     $resultado = "Resultado: $resultado";
 
-} else {
-
 }
-
 
 ?>
 <!DOCTYPE html>
@@ -43,6 +43,20 @@ if (!empty($valor) && !empty($operacion)) {
 </head>
 
 <body>
+    <nav class="navbar">
+        <div class="navbar-logo">
+            <a href="index.php">Taller PHP</a>
+        </div>
+        <ul class="navbar-links">
+            <li><a href="acronimos.php">Acrónimos</a></li>
+            <li><a href="sucesiones.php" class="active">Suceciones</a></li>
+            <li><a href="promedio.php">Promedio</a></li>
+            <li><a href="conjuntos.php">Conjuntos</a></li>
+            <li><a href="binario.php">Binario</a></li>
+            <li><a href="arbol.php">Árbol binario</a></li>
+            <li><a href="calculadora.php">Calculadora</a></li>
+        </ul>
+    </nav>
     <h1>Generador de secuencias</h1>
     <form action="#" method="post">
         <div>

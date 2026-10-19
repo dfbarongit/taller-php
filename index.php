@@ -11,13 +11,13 @@
 <body>
     <h1>MENÚ</h1>
     <ol>
-        <a href="acronimos.php"><li>Acrónimo</li></a>
-        <a href="sucesiones.php"><li>Fibonacci y factoria</li></a>
-        <a href="promedio.php"><li>Promedio, Moda, Mediana</li></a>
-        <a href="conjuntos.php"><li>Conjunto</li></a>
-        <a href="binario.php"><li>Binario</li></a>
-        <a href="arbol.php"><li>Árbol binario</li></a>
-        <a href="calculadora.php"><li>Calculadora</li></a>
+        <a href="acronimos.php" class="link-inicio"><li>Acrónimo</li></a>
+        <a href="sucesiones.php" class="link-inicio"><li>Fibonacci y factoria</li></a>
+        <a href="promedio.php" class="link-inicio"><li>Promedio, Moda, Mediana</li></a>
+        <a href="conjuntos.php" class="link-inicio"><li>Conjunto</li></a>
+        <a href="binario.php" class="link-inicio"><li>Binario</li></a>
+        <a href="arbol.php" class="link-inicio"><li>Árbol binario</li></a>
+        <a href="calculadora.php" class="link-inicio"><li>Calculadora</li></a>
     </ol>
 </body>
 

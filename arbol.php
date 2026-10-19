@@ -4,42 +4,40 @@ $preordenText = empty($_POST["preorden"]) ? null : $_POST["preorden"];
 $inordenText = empty($_POST["inorden"]) ? null : $_POST["inorden"];
 $postordenText = empty($_POST["postorden"]) ? null : $_POST["postorden"];
 
-echo "<h2>$preordenText</h2>";
-echo "<h2>$inordenText</h2>";
-echo "<h2>$postordenText</h2>";
+//echo "<h2>$preordenText</h2>";
+//echo "<h2>$inordenText</h2>";
+//echo "<h2>$postordenText</h2>";
 
 $preorden = [];
 $inorden = [];
 $postorden = [];
 
-$escrito = 0;
 if (!empty($preordenText)) {
-    $escrito++;
     $preorden = normalizarConjunto($preordenText);
 }
 if (!empty($inordenText)) {
-    $escrito++;
     $inorden = normalizarConjunto($inordenText);
 }
 if (!empty($postordenText)) {
-    $escrito++;
     $postorden = normalizarConjunto($postordenText);
 }
+
 $arbol = null;
+$mensaje = "";
 if (!empty($preordenText) && !empty($inordenText) && !empty($postordenText)) {
     $arbol = preIn($preorden, $inorden);
-} elseif (!empty($preordenText) && !empty($inordenText)){
+} else if (!empty($preordenText) && !empty($inordenText)){
     $arbol = preIn($preorden, $inorden);
-} elseif (!empty($postodenText) && !empty($inordenText)){
+} else if (!empty($inordenText) && !empty($postordenText)){
     $arbol = postIn($inorden, $postorden);
-} elseif (!empty($preordenText) && !empty($postodenText)){
+} else if (!empty($preordenText) && !empty($postordenText)){
     $arbol = prePost($preorden, $postorden);
 } else {
-    echo "No especificó suficientes parámetros";
+    $mensaje = "No especificó suficientes parámetros";
 }
-$arbol->inorden();
+//$arbol->inorden();
 
-mostrarArbol($arbol);
+
 function normalizarConjunto(string $conjuntoText)
 {
     $conjuntoNum = [];
@@ -177,11 +175,8 @@ function mostrarArbol(?Nodo $raiz): void
         }
         echo "\n";
 
-        // 2. Imprimir las líneas conectoras / \ (si no es el último nivel)
         if ($i < $maxNivel && isset($niveles[$i + 1])) {
             echo str_repeat(" ", $espacioInicial - 1);
-
-            // Contamos cuántos nodos reales tienen hijos en el siguiente nivel
             for ($j = 0; $j < count($niveles[$i]); $j++) {
                 echo "/ \\" . str_repeat(" ", $espacioEntre - 2);
             }
@@ -202,6 +197,20 @@ function mostrarArbol(?Nodo $raiz): void
 </head>
 
 <body>
+    <nav class="navbar">
+        <div class="navbar-logo">
+            <a href="index.php">Taller PHP</a>
+        </div>
+        <ul class="navbar-links">
+            <li><a href="acronimos.php">Acrónimos</a></li>
+            <li><a href="sucesiones.php">Suceciones</a></li>
+            <li><a href="promedio.php">Promedio</a></li>
+            <li><a href="conjuntos.php">Conjuntos</a></li>
+            <li><a href="binario.php">Binario</a></li>
+            <li><a href="arbol.php" class="active">Árbol binario</a></li>
+            <li><a href="calculadora.php">Calculadora</a></li>
+        </ul>
+    </nav>
     <h1>Generador de árboles binarios</h1>
     <form action="" method="post">
         <div>
@@ -225,7 +234,8 @@ function mostrarArbol(?Nodo $raiz): void
     <div class="resultado">
 
         <?php
-        echo '<h2>' . "holi" . '</h2>';
+        echo mostrarArbol($arbol);
+        echo "<h2>$mensaje</h2>"
         ?>
     </div>
 </body>

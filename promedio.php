@@ -57,6 +57,20 @@ function moda(array $numList)
 </head>
 
 <body>
+    <nav class="navbar">
+        <div class="navbar-logo">
+            <a href="index.php">Taller PHP</a>
+        </div>
+        <ul class="navbar-links">
+            <li><a href="acronimos.php">Acrónimos</a></li>
+            <li><a href="sucesiones.php">Suceciones</a></li>
+            <li><a href="promedio.php" class="active">Promedio</a></li>
+            <li><a href="conjuntos.php">Conjuntos</a></li>
+            <li><a href="binario.php">Binario</a></li>
+            <li><a href="arbol.php">Árbol binario</a></li>
+            <li><a href="calculadora.php">Calculadora</a></li>
+        </ul>
+    </nav>
 
     <h1>Calculadora de Promedio</h1>
     <form method="post" action="">
@@ -64,28 +78,38 @@ function moda(array $numList)
         <input type="number" name="numeros" min="0" required>
         <button type="submit">Guardar</button>
     </form>
-    <form method="post" action="">
-        <?php
-        $cantidadNum = empty($_POST["numeros"]) ? null : $_POST["numeros"];
+    <?php
+    $cantidadNum = empty($_POST["numeros"]) ? null : $_POST["numeros"];
+    if (!empty($cantidadNum)) {
+        echo '<form method="post" action="">';
+    }
+    ?>
+    <?php
 
-        for ($i = 0; $i < $cantidadNum; $i++) {
-            echo '<label class="subtitulo">N.' . ($i + 1) . ':</label>
+
+    for ($i = 0; $i < $cantidadNum; $i++) {
+        echo '<label class="subtitulo">N.' . ($i + 1) . ':</label>
             <input type="number" name="listNum[]" required>
             <br>';
-        }
-        ?>
-        <button type="submit">Calcular</button>
-    </form>
+    }
+    ?>
+    <?php
+    if (!empty($cantidadNum)) {
+        echo '<button type="submit">Calcular</button>';
+        echo '</form>';
+    }
+    ?>
     <div class="resultado">
 
         <?php
 
         if (!empty($numList)) {
-            echo '<h2 class=subtitulo>Lista: </h2>';
+            echo '<h2 class=subtitulo>Lista: ';
             foreach ($numList as $num) {
-                echo "$num <br> ";
+                echo "$num ";
             }
-            echo '<h2 class=subtitulo>Cantidad de números: ' . $cantidadNum . "</h2><br>";
+            echo "</h2>";
+            echo '<h2 class=subtitulo>Cantidad de números: ' . count($numList) . "</h2><br>";
             echo '<h2 class=subtitulo>Media: ' . media($numList) . "</h2><br>";
             echo '<h2 class=subtitulo>Moda: ' . moda($numList) . "</h2><br>";
             echo '<h2 class=subtitulo>Mediana: ' . mediana($numList) . "</h2><br>";

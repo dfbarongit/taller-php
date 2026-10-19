@@ -55,11 +55,23 @@ function quitarDuplicados($texto, $caracter)
 </head>
 
 <body>
-    <header></header>
+    <nav class="navbar">
+        <div class="navbar-logo">
+            <a href="index.php">Taller PHP</a>
+        </div>
+        <ul class="navbar-links">
+            <li><a href="acronimos.php" class="active">Acrónimos</a></li>
+            <li><a href="sucesiones.php">Suceciones</a></li>
+            <li><a href="promedio.php">Promedio</a></li>
+            <li><a href="conjuntos.php">Conjuntos</a></li>
+            <li><a href="binario.php">Binario</a></li>
+            <li><a href="arbol.php">Árbol binario</a></li>
+            <li><a href="calculadora.php">Calculadora</a></li>
+        </ul>
+    </nav>
     <h1>Generador de acrónimos</h1>
     <form action="#" method="post">
         <div>
-
             <label class="subtitulo">Ingrese la frase</label>
             <input type="text" name="frase" id="" required>
         </div>
