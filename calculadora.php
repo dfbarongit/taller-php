@@ -143,7 +143,7 @@ function ruta(string $valorActual, string $valorEnviado, array $historialOperaci
     ];
 
     // 3. Retornamos la URL armada de forma segura
-    return "calculadora.php?" . http_build_query($datos);
+    return "calculadora.php?" . http_build_query($datos) . "#pantalla";
 }
 function mostrarHistorial(array $historialOperaciones)
 {
@@ -182,9 +182,31 @@ function mostrarHistorial(array $historialOperaciones)
             <li><a href="calculadora.php" class="active">Calculadora</a></li>
         </ul>
     </nav>
+    <h1>Calculadora</h1>
+    <div class="instrucciones">
+        <h2>¿Cómo usar?</h2>
+        <ol>
+            <li>Ingrese el primer número utilizando la calculadora virtual</li>
+            <li>Seleccione la operación solicitada (una a la vez)</li>
+            <li>Ingrese el segundo número a calcular</li>
+            <li>Cuando haya ingresado el primer valor, la operación y el segundo valor, seleccione "=" para ver el
+                resultado del cálculo</li>
+            <li>Una vez que el resultado haya aparecido, puede repetir los mismos pasos sin necesidad de borrar (valor
+                1, operación, valor 2)</li>
+            <li>Los resultados se irán guardando en el historial para mostrarse en la parte inferior</li>
+        </ol>
+        <ul>
+            <li>
+                Presione los botones únicamente en el orden correcto 
+            </li>
+            <li>
+                Asegúrese de que el valor que solicitó fue correctamente ingresado antes de presionar el siguiente botón
+            </li>
+        </ul>
+    </div>
     <div>
 
-        <div class="pantalla">
+        <div class="pantalla" id="pantalla">
             <h2 class="digito-pantalla"><?php echo $valorMostrado; ?></h2>
 
         </div>
@@ -207,7 +229,7 @@ function mostrarHistorial(array $historialOperaciones)
                 echo '<a href=' . ruta($valorActual, $i, $historialOperaciones) . ' class="a-calc a-calc-' . $i . '">' . $i . '</a>';
             }
             ?>
-            <a href=<?php echo ruta($valorActual, ".", $historialOperaciones);?> class="a-calc a-calc-punto">.</a>
+            <a href=<?php echo ruta($valorActual, ".", $historialOperaciones); ?> class="a-calc a-calc-punto">.</a>
         </div>
     </div>
     <div class="resultado">

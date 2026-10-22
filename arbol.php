@@ -212,26 +212,38 @@ function mostrarArbol(?Nodo $raiz): void
         </ul>
     </nav>
     <h1>Generador de árboles binarios</h1>
-    <form action="" method="post">
+    <div class="instrucciones">
+        <h2>¿Cómo usar?</h2>
+        <ol>
+            <li>Rellene mínimo dos de los tres campos (preorden, inorden, postorden)</li>
+            <li>Los nombres de los nodos deben ir separados únicamente por comas ",", ej: "A,B,D,E,C"</li>
+        </ol>
+        <ul>
+            <li>
+                Si ingresa los elementos en un orden incoherente el resultado no será correcto
+            </li>
+        </ul>
+    </div>
+    <form action="#resultado" method="post">
         <div>
-            <label class="subtitulo">Escriba el árbol en preorden:</label>
+            <label class="subtitulo">Árbol en preorden:</label>
             <input type="text" name="preorden"
                 value="<?php echo empty($_POST["preorden"]) ? null : $_POST["preorden"] ?>">
         </div>
         <div>
-            <label class="subtitulo">Escriba el árbol en inorden</label>
+            <label class="subtitulo">Árbol en inorden</label>
             <input type="text" name="inorden"
                 value="<?php echo empty($_POST["inorden"]) ? null : $_POST["inorden"] ?>">
         </div>
         <div>
-            <label class="subtitulo">Escriba el árbol en postorden</label>
+            <label class="subtitulo">Árbol en postorden</label>
             <input type="text" name="postorden"
                 value="<?php echo empty($_POST["postorden"]) ? null : $_POST["postorden"] ?>">
         </div>
 
         <button type="submit">Calcular</button>
     </form>
-    <div class="resultado">
+    <div class="resultado" id="resultado">
 
         <?php
         echo mostrarArbol($arbol);

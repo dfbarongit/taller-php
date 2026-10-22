@@ -6,7 +6,7 @@ if (!empty($frase)) {
     $fraseAdaptada = "";
     for ($i = 0; $i < strLen($frase); $i++) {
         if (!preg_match('/[^\p{L}\p{N}]/u', $frase[$i])) {
-            #VERIFICAR SI SON ESPECIALES
+            //VERIFICAR SI SON ESPECIALES
             $fraseAdaptada .= $frase[$i];
         }
         if ($frase[$i] == " " || $frase[$i] == "-" || $frase[$i] == "_") {
@@ -70,7 +70,18 @@ function quitarDuplicados($texto, $caracter)
         </ul>
     </nav>
     <h1>Generador de acrónimos</h1>
-    <form action="#" method="post">
+    <div class="instrucciones">
+        <h2>¿Cómo usar?</h2>
+        <ol>
+            <li>Ingrese la frase con las palabras separadas por espacio " ", guiones "-" o barra baja "_"</li>
+        </ol>
+        <ul>
+            <li>
+                Los caracteres especiales (todo lo que no sean letras o números) serán omitidos
+            </li>
+        </ul>
+    </div>
+    <form action="#resultado" method="post">
         <div>
             <label class="subtitulo">Ingrese la frase</label>
             <input type="text" name="frase" id="" required>
@@ -82,7 +93,7 @@ function quitarDuplicados($texto, $caracter)
             } ?>
         </label>
     </form>
-    <div class="resultado">
+    <div class="resultado" id="resultado">
         <h2 class="subtitulo"> <?php echo $resultado ?> </h2>
     </div>
 </body>

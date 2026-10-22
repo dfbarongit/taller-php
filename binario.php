@@ -38,16 +38,23 @@ $binario = strrev($residuos);
         </ul>
     </nav>
     <h1>Calculadora de número binario</h1>
-    <form action="" method="get">
+    <div class="instrucciones">
+        <h2>¿Cómo usar?</h2>
+        <ol>
+            <li>Ingrese un número entero</li>
+            <li>Posteriormente verá su equivalente en binario al enviar</li>
+        </ol>
+    </div>
+    <form action="#resultado" method="get">
         <label class="subtitulo">Escriba el número para pasar a binario:</label>
         <input type="number" name="numero" min="0" required
             value="<?php echo empty($_POST["numero"]) ? null : $_POST["numero"] ?>">
         <button type="submit">Calcular</button>
     </form>
-    <div class="resultado">
+    <div class="resultado" id="resultado">
 
         <?php
-            echo '<h2 class=subtitulo>'.$binario.'</h2>';
+            echo '<h2 class=subtitulo> Resultado: '.$binario.'</h2>';
         ?>
     </div>
 </body>

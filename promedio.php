@@ -73,7 +73,14 @@ function moda(array $numList)
     </nav>
 
     <h1>Calculadora de Promedio</h1>
-    <form method="post" action="">
+    <div class="instrucciones">
+        <h2>¿Cómo usar?</h2>
+        <ol>
+            <li>Ingrese la cantidad de números que desea calcular y seleccione "guardar"</li>
+            <li>Posteriormente, en cada campo añada un valor correspondiente</li>
+        </ol>
+    </div>
+    <form action="#resultado" method="post">
         <label class="subtitulo">Cuántos números deseas calcular:</label>
         <input type="number" name="numeros" min="0" required>
         <button type="submit">Guardar</button>
@@ -99,7 +106,7 @@ function moda(array $numList)
         echo '</form>';
     }
     ?>
-    <div class="resultado">
+    <div class="resultado" id="resultado">
 
         <?php
 

@@ -108,14 +108,21 @@ function diferencia(array $conjA, array $conjB)
         </ul>
     </nav>
         <h1>Calculadora de Conjuntos</h1>
-        <form method="post" action="">
+        <div class="instrucciones">
+        <h2>¿Cómo usar?</h2>
+        <ol>
+            <li>Ingrese los elementos del conjunto únicamente separados por comas ","</li>
+            <li>Los elementos deben ser números enteros</li>
+        </ol>
+    </div>
+        <form action="#resultado" method="post">
             <label class="subtitulo">Elementos del conjunto A:</label>
-            <input type="text" name="numerosA" min="0" required>
+            <input type="text" name="numerosA" min="0" required placeholder="ej: 1,2,3,4">
             <label class="subtitulo">Elementos del conjunto B:</label>
-            <input type="text" name="numerosB" min="0" required>
+            <input type="text" name="numerosB" min="0" required placeholder="ej: 3,4,5,6">
             <button type="submit">Calcular</button>
         </form>
-    <div class="resultado">
+    <div class="resultado" id="resultado">
         <?php
         if (!empty($numerosA) && !empty($numerosB)) {
             imprimirConjunto($numerosA, "A");

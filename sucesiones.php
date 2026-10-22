@@ -16,16 +16,16 @@ if (!empty($valor) && !empty($operacion)) {
             if ($c > $valor) {
                 break;
             }
-            $resultado .= "-".$c;
+            $resultado .= "-" . $c;
         }
     } elseif ($operacion == "fact") {
         $resultado = $valor;
         $resTotal = $valor;
-        for ($i = $valor - 1; $i > 0; $i--) { 
+        for ($i = $valor - 1; $i > 0; $i--) {
             $resTotal *= $i;
-            $resultado .= " * ".$i;
+            $resultado .= " * " . $i;
         }
-        $resultado .= " = ".$resTotal;
+        $resultado .= " = " . $resTotal;
     }
     $resultado = "Resultado: $resultado";
 
@@ -58,10 +58,26 @@ if (!empty($valor) && !empty($operacion)) {
         </ul>
     </nav>
     <h1>Generador de secuencias</h1>
-    <form action="#" method="post">
+    <div class="instrucciones">
+        <h2>¿Cómo usar?</h2>
+        <ol>
+            <li>Ingrese un número entero</li>
+            <li>Seleccione la operación solicitada (serie de fibonacci o factorial)</li>
+        </ol>
+        <ul>
+            <li>
+                Si selecciona la serie de fibonacci, el valor introducido trabajará como el límite del que no pasará la secuencia.
+            </li>
+            <li>
+                Si selecciona factorial, se mostrará toda la sucesión de números de la operación y se mostrará el
+                resultado.
+            </li>
+        </ul>
+    </div>
+    <form action="#resultado" method="post">
         <div>
             <label class="subtitulo">Ingrese el valor</label>
-            <input type="number" name="valor" id="" value=<?php echo $valor;?> required min="0">
+            <input type="number" name="valor" id="" value=<?php echo $valor; ?> required min="0">
         </div>
         <div>
             <label class="subtitulo">Seleccione la operación</label>
@@ -73,7 +89,7 @@ if (!empty($valor) && !empty($operacion)) {
 
         <button type="submit">Enviar</button>
     </form>
-    <div class="resultado">
+    <div class="resultado" id="resultado">
         <h2 class=subtitulo><?php echo "$resultado"; ?></h2>
     </div>
 </body>

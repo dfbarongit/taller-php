@@ -8,112 +8,120 @@ html {
 }
 .navbar {
   display: flex;
-  justify-content: space-between; 
-  align-items: center;            
-  background-color: #17002b;      /* Morado ultra oscuro */
+  justify-content: space-between;
+  align-items: center;
+  background-color: #17002b;
   padding: 0 2rem;
-  height: 70px;                   
-  border-bottom: 2px solid #ff00b3; /* Línea neón rosa divisoria */
-  /* Brillo rosa hacia abajo de la barra */
-  box-shadow: 0 4px 20px rgba(255, 0, 127, 0.3); 
+  height: 70px;
+  border-bottom: 2px solid #ff00b3;
+  box-shadow: 0 4px 20px rgba(255, 0, 127, 0.3);
 }
-
-/* ==========================================
-   LOGOTIPO (Efecto Neón Cian)
-   ========================================== */
 .navbar-logo a {
   display: inline-flex;
   align-items: center;
-  color: #00f0ff; /* Cian brillante */
+  color: #00f0ff;
   text-decoration: none;
   font-size: 1.4rem;
   font-weight: 800;
   letter-spacing: 1px;
-  /* Efecto de texto iluminado */
-  text-shadow: 0 0 5px #00f0ff, 0 0 15px #00f0ff, 0 0 30px #00f0ff;
+  text-shadow:
+    0 0 5px #00f0ff,
+    0 0 15px #00f0ff,
+    0 0 30px #00f0ff;
   transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-/* El logo se agranda un poco con un brinco al pasar el cursor */
 .navbar-logo a:hover {
   transform: scale(1.05);
 }
 
-/* ==========================================
-   LISTA DE ENLACES (UL)
-   ========================================== */
 .navbar-links {
   display: flex;
-  list-style: none; 
-  gap: 1.5rem;        
-  height: 100%;     
+  list-style: none;
+  gap: 1.5rem;
+  height: 100%;
 }
 
 .navbar-links li {
-  height: 100%;     
+  height: 100%;
 }
 
-/* ==========================================
-   ENLACES INDIVIDUALES (A)
-   ========================================== */
 .navbar-links a {
-  display: flex;            
-  align-items: center;      
-  justify-content: center;  
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 0 1rem;
-  height: 100%;             
-  color: #e2e8f0;           
+  height: 100%;
+  color: #e2e8f0;
   text-decoration: none;
   font-size: 1rem;
   font-weight: 600;
   letter-spacing: 0.5px;
-  position: relative; /* Necesario para animar la línea inferior */
-  overflow: hidden;   /* Oculta los destellos internos que crearemos */
-  transition: color 0.25s ease, background-color 0.25s ease;
+  position: relative;
+  overflow: hidden;
+  transition:
+    color 0.25s ease,
+    background-color 0.25s ease;
 }
 
-/* Estado al pasar el mouse por encima (Hover) */
 .navbar-links a:hover {
-  color: #ff00b3; /* Cambia a rosa neón */
-  background-color: #ff00b314; /* Destello sutil de fondo */
+  color: #ff00b3;
+  background-color: #ff00b314;
 }
 
-/* ==========================================
-   ANIMACIÓN DE LA LÍNEA INFERIOR CON ::after
-   ========================================== */
-/* Creamos una línea invisible debajo de CADA enlace */
 .navbar-links a::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 0;
   left: 50%;
-  width: 0; /* Empieza midiendo cero en el centro */
+  width: 0;
   height: 3px;
   background-color: #ff00b3;
-  box-shadow: 0 0 8px #ff00b3, 0 0 15px #ff00b3; /* Brillo de la línea */
-  transition: width 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), left 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow:
+    0 0 8px #ff00b3,
+    0 0 15px #ff00b3;
+  transition:
+    width 0.3s cubic-bezier(0.25, 0.8, 0.25, 1),
+    left 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-/* Al pasar el cursor, la línea se expande desde el centro hacia los lados */
 .navbar-links a:hover::after {
   width: 100%;
   left: 0;
 }
 
-/* ==========================================
-   ESTADO ACTIVO (La pestaña actual cambia a Cian)
-   ========================================== */
 .navbar-links a.active {
-  color: #00f0ff; /* Texto Cian */
+  color: #00f0ff;
   text-shadow: 0 0 8px rgba(0, 240, 255, 0.6);
 }
 
-/* La línea inferior del botón activo se queda fija en color Cian */
 .navbar-links a.active::after {
   width: 100%;
   left: 0;
   background-color: #00f0ff;
-  box-shadow: 0 0 8px #00f0ff, 0 0 15px #00f0ff;
+  box-shadow:
+    0 0 8px #00f0ff,
+    0 0 15px #00f0ff;
+}
+.instrucciones {
+  text-align: left;
+  width: 100%;
+  max-width: 70vh;
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  margin: 15px;
+  border-radius: 5px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #fff;
+}
+.instrucciones ol {
+  margin-left: 30px;
+  color: #fff;
+}
+.instrucciones ul {
+  color: #fff;
 }
 h1 {
   font-family: "Orbitron", sans-serif;
@@ -221,7 +229,7 @@ form {
   transition-duration: 200ms;
   transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
 }
-form button{
+form button {
   margin: 15px;
 }
 form div,
@@ -231,48 +239,38 @@ form div,
   max-width: 70vh;
   display: flex;
   flex-direction: column;
-  /*justify-content: space-between;*/
-  /*border-color: #9e00b7;
-  border-width: 2px;
-  border-style: solid;
-  border-radius: 10px;*/
   padding: 5px;
   margin: 15px;
 }
 
-/* Estilo base para el input de texto */
-        input {
-            /*width: 100%; /* Ocupa todo el ancho de su contenedor */
-            padding: 12px 16px;
-            font-size: 16px;
-            font-weight: 500;
-            color: #ffffff; /* Texto blanco igual que los enlaces */
-            background-color: #1a1a2e; /* Azul oscuro idéntico a la Navbar */
-            border: 2px solid #3ecfff; /* Borde con el color del hover de la Navbar */
-            border-radius: 6px;
-            outline: none; /* Elimina el borde azul por defecto del navegador */
-            transition: all 0.3s ease; /* Suaviza las transiciones de color */
-        }
+input {
+  padding: 12px 16px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #ffffff;
+  background-color: #1a1a2e;
+  border: 2px solid #3ecfff;
+  border-radius: 6px;
+  outline: none;
+  transition: all 0.3s ease;
+}
 
-        /* Marcador de posición (Placeholder) */
-        input::placeholder {
-            color: #a0a0b0; /* Texto gris suave para el texto de sugerencia */
-        }
+input::placeholder {
+  color: #a0a0b0;
+}
 
-        /* Efecto cuando el usuario hace clic dentro del input (Focus) */
-        input:focus {
-            border-color: #ff00b3; /* Cambia al color de acento rosa/rojo al escribir */
-            box-shadow: 0 0 8px rgba(233, 69, 96, 0.4); /* Resplandor sutil */
-            background-color: #161626; /* Se oscurece un poco más al activarse */
-        }
+input:focus {
+  border-color: #ff00b3;
+  box-shadow: 0 0 8px rgba(233, 69, 96, 0.4);
+  background-color: #161626;
+}
 
-        /* Estilo por si necesitas deshabilitar el input en algún momento */
-        input:disabled {
-            background-color: #0f0f1a;
-            border-color: #101020;
-            color: #666677;
-            cursor: not-allowed;
-        }
+input:disabled {
+  background-color: #0f0f1a;
+  border-color: #101020;
+  color: #666677;
+  cursor: not-allowed;
+}
 
 .subtitulo,
 h2 {
@@ -285,159 +283,112 @@ h2 {
   width: 100%;
 }
 
-/*button,
-.a-calc {
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-
-  color: #fff;
-  font-size: 30px;
-  padding-bottom: 10px;
-  padding-top: 10px;
-  padding-right: 20px;
-  padding-left: 20px;
-  background-image: linear-gradient(144deg, #af40ff, #5b42f3 50%, #00ddeb);
-  border-color: #fff;
-  border-width: 2px;
-  border-style: solid;
-  border-radius: 25px;
-  transition-property: border, padding, border-radius;
-  transition-duration: 500ms;
-  transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
-}
-button:hover,
-.a-calc:hover {
-  background-image: linear-gradient(144deg, #5b42f3, #00ddeb 50%, #af40ff);
-
-  color: #fcfcfc;
-  cursor: pointer;
-  border-radius: 15px;
-}
-button:active,
-.a-calc:active {
-  border-radius: 5px;
-  border-color: #08ceff;
-}*/
-
-
 button,
 .a-calc {
   display: inline-flex;
-  align-items: center;      /* Centrado vertical perfecto */
-  justify-content: center;  /* Centrado horizontal */
+  align-items: center;
+  justify-content: center;
   padding: 12px 28px;
   font-size: 1rem;
   font-weight: 700;
-  text-transform: uppercase; /* Texto en mayúsculas estilo arcade */
+  text-transform: uppercase;
   letter-spacing: 1.5px;
   border-radius: 4px;
   cursor: pointer;
   text-decoration: none;
-  background-color: #0d0114; /* Fondo morado ultra oscuro */
+  background-color: #0d0114;
   position: relative;
   overflow: hidden;
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   user-select: none;
 }
 
-/* ==========================================
-   BOTÓN MODIFICADOR 1: ROSA NEÓN (button-1)
-   ========================================== */
 button,
 .a-calc {
   color: #ff00b3;
   border: 2px solid #ff00b3;
-  box-shadow: 0 0 10px rgba(255, 0, 127, 0.2), inset 0 0 10px rgba(255, 0, 127, 0.1);
+  box-shadow:
+    0 0 10px rgba(255, 0, 127, 0.2),
+    inset 0 0 10px rgba(255, 0, 127, 0.1);
 }
 
-/* Al pasar el cursor por encima (Hover) */
 button:hover,
 .a-calc:hover {
   color: #ffffff;
   background-color: #ff00b3;
-  /* El brillo se intensifica hacia afuera y hacia adentro del botón */
-  box-shadow: 0 0 20px #ff00b3, 0 0 40px #ff00b3, inset 0 0 15px rgba(255, 255, 255, 0.5);
+  box-shadow:
+    0 0 20px #ff00b3,
+    0 0 40px #ff00b3,
+    inset 0 0 15px rgba(255, 255, 255, 0.5);
   text-shadow: 0 0 5px #ffffff;
   border-radius: 15px;
 }
 
-/* ==========================================
-   BOTÓN MODIFICADOR 2: AZUL CIAN (button-2)
-   ========================================== */
 .a-calc-ope {
   color: #00f0ff;
   border: 2px solid #00f0ff;
-  box-shadow: 0 0 10px rgba(0, 240, 255, 0.2), inset 0 0 10px rgba(0, 240, 255, 0.1);
+  box-shadow:
+    0 0 10px rgba(0, 240, 255, 0.2),
+    inset 0 0 10px rgba(0, 240, 255, 0.1);
 }
 
 .a-calc-ope:hover {
-  color: #0d0114; /* El texto cambia al fondo oscuro para contrastar con el cian */
+  color: #0d0114;
   background-color: #00f0ff;
-  box-shadow: 0 0 20px #00f0ff, 0 0 40px #00f0ff;
+  box-shadow:
+    0 0 20px #00f0ff,
+    0 0 40px #00f0ff;
 }
-
-/* ==========================================
-   EFECTO INTERACTIVO: CUANDO SE PRESIONA (:active)
-   ========================================== */
-/* Aplica para ambos botones cuando el usuario hace clic */
 button:active,
 .a-calc:active {
-  transform: scale(0.95); /* El botón se encoge un poco simulanzo ser pulsado */
-  box-shadow: 0 0 5px currentcolor; /* Reduce el brillo simulando el corte de energía */
-  filter: brightness(1.2); /* Se ilumina un poco más al hacer el contacto */
+  transform: scale(0.95);
+  box-shadow: 0 0 5px currentcolor;
+  filter: brightness(1.2);
   border-radius: 5px;
 }
 
 select {
-            width: 100%;
-            padding: 12px 40px 12px 16px; /* Espacio extra a la derecha para la flecha */
-            font-size: 16px;
-            font-weight: 500;
-            color: #ffffff; /* Texto blanco */
-            background-color: #1a1a2e; /* Azul oscuro idéntico a la Navbar */
-            border: 2px solid #00f2fe; /* Borde azul claro */
-            border-radius: 6px;
-            outline: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            
-            /* Reemplazar la flecha por defecto del navegador */
-            appearance: none;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://w3.org' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'></polyline></svg>");
-            background-repeat: no-repeat;
-            background-position: right 12px center;
-            background-size: 16px;
-        }
+  width: 100%;
+  padding: 12px 40px 12px 16px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #ffffff;
+  background-color: #1a1a2e;
+  border: 2px solid #00f2fe;
+  border-radius: 6px;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
 
-        /* Efecto Focus (Cuando se hace clic en el select) */
-        select:focus {
-            border-color: #ff00b3; /* Color de acento rosa/rojo */
-            box-shadow: 0 0 8px rgba(233, 69, 96, 0.4);
-            /* Cambia la flecha a color rosa/rojo al abrirse */
-            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://w3.org' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23e94560' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='18 15 12 9 6 15'></polyline></svg>");
-        }
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://w3.org' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'></polyline></svg>");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 16px;
+}
 
-        /* Estilos para las opciones de la lista desplegable */
-        select option {
-            background-color: #1a1a2e; /* Fondo oscuro para el menú desplegable */
-            color: #ffffff; /* Texto blanco */
-            font-size: 16px;
-            padding: 12px;
-        }
+select:focus {
+  border-color: #ff00b3;
+  box-shadow: 0 0 8px rgba(233, 69, 96, 0.4);
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://w3.org' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23e94560' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='18 15 12 9 6 15'></polyline></svg>");
+}
 
-        /* Estilo para deshabilitar el select */
-        select:disabled {
-            background-color: #0f0f1a;
-            border-color: #101020;
-            color: #666677;
-            cursor: not-allowed;
-            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://w3.org' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23666677' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'></polyline></svg>");
-        }
+select option {
+  background-color: #1a1a2e;
+  color: #ffffff;
+  font-size: 16px;
+  padding: 12px;
+}
+
+select:disabled {
+  background-color: #0f0f1a;
+  border-color: #101020;
+  color: #666677;
+  cursor: not-allowed;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://w3.org' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23666677' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'></polyline></svg>");
+}
 
 body {
   display: flex;
